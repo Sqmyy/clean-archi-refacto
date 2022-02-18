@@ -3,8 +3,7 @@
 	//lots of comments!
 	public static void Main(string[] args)
 	{
-		//add a title to our app  
-		Console.WriteLine("=== Sales Viewer ===");
+		Output.appTitle()
 		//extract the command name from the args  
 		string command = args.Length > 0 ? args[0] : "unknown";  
 		string file = args.Length >= 2 ? args[1] : "./data.csv";
