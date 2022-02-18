@@ -1,9 +1,14 @@
-﻿public static class Program
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using SalesReporterKata;
+public static class Program
 {
 	//lots of comments!
 	public static void Main(string[] args)
 	{
-		Output.appTitle()
+		Output.appTitle();
 		//extract the command name from the args  
 		string command = args.Length > 0 ? args[0] : "unknown";  
 		string file = args.Length >= 2 ? args[1] : "./data.csv";
@@ -24,15 +29,8 @@
 			 {
 				 columnInfos.Add((i++, columName.Length, columName));
 			 }
-
-			 var headerString  = String.Join(
-				 " | ", 
-				 columnInfos.Select(x=>x.name).Select(
-					 (val,ind) => val.PadLeft(16)));
-			 Console.WriteLine("+" + new String('-', headerString.Length + 2) + "+");
-			 Console.WriteLine("| " + headerString + " |");
-			 Console.WriteLine("+" + new String('-', headerString.Length +2 ) + "+");
-
+			 //we display the header in one of output function
+			 Output.printHeader(columnInfos);
 			 //then add each line to the table  
 			 foreach (string line in otherLines)  
 			 { 
@@ -45,7 +43,7 @@
 			            (val,ind) => val.PadLeft(16)));
 	            Console.WriteLine($"| {tableLine} |");
 			 } 
-			 Console.WriteLine("+" + new String('-', headerString.Length+2) + "+");
+			 //Console.WriteLine("+" + new String('-', headerString.Length+2) + "+");
 
 			// if command is report
 		} 
