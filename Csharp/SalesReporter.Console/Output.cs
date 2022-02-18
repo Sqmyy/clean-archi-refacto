@@ -7,7 +7,7 @@ namespace SalesReporterKata
     public static class Output
     {
         //add a title to our app
-        public static void appTitle() 
+        private static void appTitle() 
         {
             Console.WriteLine("=== Sales Viewer ===");
         }
@@ -25,20 +25,41 @@ namespace SalesReporterKata
         }
 
         // render the complete header
-        public static void printHeader(List<(int index, int size, string name)> titleList)
+        private static void printHeader(String titleInString)
+        {
+            printBorder(titleInString);
+            printTitles(titleInString);
+            printBorder(titleInString);
+        }
+        private static void printData(IEnumerable<string> allLinesData)
+        {
+            //then add each line to the table  
+            foreach (string line in allLinesData)  
+            { 
+                //extract columns from our csv line and add all these cells to the line  
+                var cells = line.Split(',');
+                var tableLine  = String.Join(
+                    " | ", 
+		            
+                    line.Split(',').Select(
+                        (val,ind) => val.PadLeft(16)));
+                Console.WriteLine($"| {tableLine} |");
+            } 
+        }
+
+        public static void renderPrintFormat(
+            List<(int index, int size, string name)> allTitles,
+            IEnumerable<string> allLinesData )
         {
             var headerString = String.Join(
                 " | ",
-                titleList.Select(x => x.name)
+                allTitles.Select(x => x.name)
                     .Select(
                         (val,ind) => val.PadLeft(16)));
+            appTitle();
+            printHeader(headerString);
+            printData(allLinesData);
             printBorder(headerString);
-            printTitles(headerString);
-            printBorder(headerString);
-        }
-        public static void printData()
-        {
-
         }
 
     }

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using SalesReporterKata;
+
 public static class Program
 {
 	//lots of comments!
 	public static void Main(string[] args)
 	{
-		Output.appTitle();
 		//extract the command name from the args  
 		string command = args.Length > 0 ? args[0] : "unknown";  
 		string file = args.Length >= 2 ? args[1] : "./data.csv";
@@ -30,20 +30,7 @@ public static class Program
 				 columnInfos.Add((i++, columName.Length, columName));
 			 }
 			 //we display the header in one of output function
-			 Output.printHeader(columnInfos);
-			 //then add each line to the table  
-			 foreach (string line in otherLines)  
-			 { 
-				 //extract columns from our csv line and add all these cells to the line  
-				 var cells = line.Split(',');
-				 var tableLine  = String.Join(
-		            " | ", 
-		            
-		            line.Split(',').Select(
-			            (val,ind) => val.PadLeft(16)));
-	            Console.WriteLine($"| {tableLine} |");
-			 } 
-			 //Console.WriteLine("+" + new String('-', headerString.Length+2) + "+");
+			 Output.renderPrintFormat(columnInfos, otherLines);
 
 			// if command is report
 		} 
