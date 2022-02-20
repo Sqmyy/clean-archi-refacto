@@ -7,31 +7,31 @@ namespace SalesReporterKata
     public static class Output
     {
         //add a title to our app
-        private static void printAppTitle() 
+        public static void printAppTitle() 
         {
             Console.WriteLine("=== Sales Viewer ===");
         }
 
         //add a border for the table
-        private static void printBorder(String completeHeader)
+        public static void printBorder(String completeHeader)
         {
             Console.WriteLine("+" + new String('-', completeHeader.Length + 2) + "+");
         }
 
         //render the titles format
-        private static void printTitles( String completeHeader)
+        public static void printTitles( String completeHeader)
         {
             Console.WriteLine("| " + completeHeader + " |");
         }
 
         // render the complete header
-        private static void printHeader(String titleInString)
+        public static void printHeader(String titleInString)
         {
             printBorder(titleInString);
             printTitles(titleInString);
             printBorder(titleInString);
         }
-        private static void printData(IEnumerable<string> allLinesData)
+        public static void printData(IEnumerable<string> allLinesData)
         {
             //then add each line to the table  
             foreach (string line in allLinesData)  
