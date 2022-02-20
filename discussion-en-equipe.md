@@ -31,3 +31,7 @@ L'application a 2 buts:
 - classe Reporter pour la commande report
 - classe pour le helper au cas ou l'utilisateur ne precise ni `report` ni `print`
 
+## Remarques pour le prof
+
+On est tous deux arrivés en 4eme année a l'ESGI et on a jamais eu de cours sur les Tests, on a essayé d'en ecrire quelques uns mais c'etait n'importe quoi et ca fonctionnait pas.
+On s'est donc referer a l'output original en le comparant avec notre resultat pour avancer a chaque fois.
