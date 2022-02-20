@@ -7,7 +7,7 @@ namespace SalesReporterKata
     public static class Output
     {
         //add a title to our app
-        private static void appTitle() 
+        private static void printAppTitle() 
         {
             Console.WriteLine("=== Sales Viewer ===");
         }
@@ -56,7 +56,7 @@ namespace SalesReporterKata
                 allTitles.Select(x => x.name)
                     .Select(
                         (val,ind) => val.PadLeft(16)));
-            appTitle();
+            printAppTitle();
             printHeader(headerString);
             printData(allLinesData);
             printBorder(headerString);

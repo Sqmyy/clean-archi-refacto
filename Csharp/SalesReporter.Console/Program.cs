@@ -18,20 +18,13 @@ public static class Program
 		//if command is print  
 		if (command == "print")  
 		{  
-			 //get the header line  
-			 string line1 = dataContentString[0];  
-			 //get other content lines  
-			 var otherLines = dataContentString.Skip(1);
-			 var columnInfos = new List<(int index, int size, string name)>();
-			 //build the header of the table with column names from our data file  
-			 int i = 0;
-			 foreach (var columName in line1.Split(','))
-			 {
-				 columnInfos.Add((i++, columName.Length, columName));
-			 }
-			 //we display the header in one of output function
-			 Output.renderPrintFormat(columnInfos, otherLines);
+			var printer = new Printer();
 
+			string header = printer.getHeaderLine(dataContentString);
+			var dataLines = printer.getDataLines(dataContentString);
+			var columnInfos = printer.buildDataArray(header);
+
+			Output.renderPrintFormat(columnInfos, dataLines);
 			// if command is report
 		} 
 		else if (command == "report")  
