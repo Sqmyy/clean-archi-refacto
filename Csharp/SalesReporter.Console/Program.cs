@@ -38,7 +38,7 @@ public static class Program
 		}  
 		else  
 		{  
- 			Output.printHelp();
+			Helper.printHelp();
 		}
 	}
 }
