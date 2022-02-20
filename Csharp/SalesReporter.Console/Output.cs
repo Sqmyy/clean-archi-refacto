@@ -62,5 +62,24 @@ namespace SalesReporterKata
             printBorder(headerString);
         }
 
+        public static void printSummary(Dictionary<string, string> dataReport)
+        {
+            printAppTitle();
+            Console.WriteLine($"+{new String('-',45)}+");
+            foreach(KeyValuePair<string, string> entry in dataReport)
+            {
+                Console.WriteLine($"| {entry.Key.PadLeft(30)} | {entry.Value.PadLeft(10)} |");
+            }
+            Console.WriteLine($"+{new String('-',45)}+");
+        }
+
+        public static void printHelp()
+        {
+            Console.WriteLine("[ERR] your command is not valid ");  
+			Console.WriteLine("Help: ");  
+			Console.WriteLine("    - [print]  : show the content of our commerce records in data.csv");  
+			Console.WriteLine("    - [report] : show a summary from data.csv records ");  
+        }
+
     }
 }
