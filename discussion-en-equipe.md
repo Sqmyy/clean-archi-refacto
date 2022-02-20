@@ -16,15 +16,18 @@ L'application a 2 buts:
 
 ### Pas bien
 
-- Tout est dans le main
+- Tout est dans le main, lisibilité du code immmonde
 - Des valeurs hard-codées
-- Variable i faisant office de compteur, nom peu explicit
+- Variable i faisant office de compteur, nom peu explicit, pareil pour number 1,2,3,4,5
 - Programmation imperative, traitement de notre probleme ligne par ligne
+- Datetime inutile
+- Le nombre de client est toujours = 0
 
 ### Comment on split tout ca
 
-Output : printBorder() ; titles() ; printData()
-
-## Remarques pendant le refacto
-
+- Renaming des variable au nom peu explicit
+- classe Output pour l'affichage
+- classe Printer pour la commande print
+- classe Reporter pour la commande report
+- classe pour le helper au cas ou l'utilisateur ne precise ni `report` ni `print`
 
